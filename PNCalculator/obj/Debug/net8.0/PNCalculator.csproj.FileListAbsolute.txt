@@ -1,0 +1,14 @@
+C:\Projects\CS\PNCalculator\PNCalculator\bin\Debug\net8.0\PNCalculator.exe
+C:\Projects\CS\PNCalculator\PNCalculator\bin\Debug\net8.0\PNCalculator.deps.json
+C:\Projects\CS\PNCalculator\PNCalculator\bin\Debug\net8.0\PNCalculator.runtimeconfig.json
+C:\Projects\CS\PNCalculator\PNCalculator\bin\Debug\net8.0\PNCalculator.dll
+C:\Projects\CS\PNCalculator\PNCalculator\bin\Debug\net8.0\PNCalculator.pdb
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.AssemblyInfoInputs.cache
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.AssemblyInfo.cs
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.csproj.CoreCompileInputs.cache
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.dll
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\refint\PNCalculator.dll
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.pdb
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.genruntimeconfig.cache
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\ref\PNCalculator.dll

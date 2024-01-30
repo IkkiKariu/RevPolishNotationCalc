@@ -12,3 +12,4 @@ C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\refint\PNCalculator.dl
 C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.pdb
 C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.genruntimeconfig.cache
 C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\ref\PNCalculator.dll
+C:\Projects\CS\PNCalculator\PNCalculator\obj\Debug\net8.0\PNCalculator.sourcelink.json

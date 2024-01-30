@@ -4,7 +4,7 @@ namespace PNCalculator
 {
     internal class Programm
     {
-        enum Operatorz
+        /*enum Operatorz
         {
             Addition,
             Subtraction,
@@ -13,60 +13,47 @@ namespace PNCalculator
             DIV,
             MOD,
             Exponentation
-        }
+        }*/
 
         public static void Main(string[] args)
         {
             Calculator calc = new Calculator();
-            /*List<string> tokenList = new List<string>();
 
-            tokenList.Add("(");
-            tokenList.Add("-4");
-            tokenList.Add("+");
-            tokenList.Add("-4");
-            tokenList.Add(")");
-            tokenList.Add("*");
-            tokenList.Add("2");
-            tokenList.Add("^");
-            tokenList.Add("2");
-            var res = Calculator.ConvertToRevNotation(tokenList);
-
-            foreach(var i in res)
+            while (true)
             {
-                Console.Write(i);
-            }
-            Console.WriteLine();
+                Console.Write("Введите выражение: ");
+                string userInput = Console.ReadLine();
 
-            var result = Calculator.Calculate(res);
-            Console.WriteLine(result);
-            Console.WriteLine((-4 + -4) * 4);*/
+                List<string> parsedExp = Calculator.ParseExpression(userInput);
 
-            string userInput = Console.ReadLine();
+                foreach (var token in parsedExp)
+                {
+                    Console.Write(token);
+                }
 
-            List<string> resultExp = Calculator.ParseExpression(userInput);
+                Console.Write("\nВыражение в обратной польской нотаци: ");
 
-            foreach(var token in resultExp)
-            {
-                Console.Write(token);
-            }
+                
+                foreach (var token in Calculator.ConvertToRevNotation(parsedExp))
+                {
+                    Console.Write(token);
+                }
 
-            Console.WriteLine();
+                Console.WriteLine();
 
-            foreach (var token in Calculator.ConvertToRevNotation(resultExp))
-            {
-                Console.Write(token);
-            }
+                BigInteger resultt = Calculator.Calculate(Calculator.ConvertToRevNotation(parsedExp));
 
-            Console.WriteLine();
+                Console.Write("Результат: ");
 
-            BigInteger resultt = Calculator.Calculate(Calculator.ConvertToRevNotation(resultExp));
+                if (resultt.isNegative)
+                    Console.Write('-');
 
-            if (resultt.isNegative)
-                Console.Write('-');
-
-            for (int i = resultt.digits.Count - 1; i >= 0; i--)
-            {
-                Console.Write(resultt.digits[i]);
+                for (int i = resultt.digits.Count - 1; i >= 0; i--)
+                {
+                    Console.Write(resultt.digits[i]);
+                }
+                Console.WriteLine();
+                Console.WriteLine("---");
             }
         }
     }

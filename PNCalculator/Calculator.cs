@@ -238,11 +238,6 @@ namespace PNCalculator
             return isNumber;
         }
 
-        private static void ToSameFormat(string number1, string number2)
-        {
-            
-        }
-
         private static bool TokenIsNumber(string token)
         {
             string numberAppropriatedChars = "0123456789";

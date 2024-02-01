@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PNCalculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e1ec8fb88856b005e7502c5b1b460a79051eb40")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+163755e192f3436a64b615eec86fb9ffac146613")]
 [assembly: System.Reflection.AssemblyProductAttribute("PNCalculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PNCalculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

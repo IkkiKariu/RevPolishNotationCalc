@@ -241,6 +241,10 @@ namespace PNCalculator
 
         public static BigInteger operator /(BigInteger num1, BigInteger num2)
         {
+
+            if (num2.digits.Count == 1 && num2.digits[0] == 0)
+                throw new DivideByZeroException();
+
             BigInteger quotient = new BigInteger();
             int tmpQuotient = 0;
             BigInteger remainder = new BigInteger();
@@ -308,6 +312,9 @@ namespace PNCalculator
 
         public static BigInteger operator %(BigInteger num1, BigInteger num2)
         {
+            if (num2.digits.Count == 1 && num2.digits[0] == 0)
+                throw new DivideByZeroException();
+
             BigInteger quotient = new BigInteger();
             int tmpQuotient = 0;
             BigInteger remainder = new BigInteger();

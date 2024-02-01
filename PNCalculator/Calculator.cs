@@ -118,11 +118,9 @@ namespace PNCalculator
             foreach (string token in polNotationExp)
             {
                 
-                if (IsNumber(token))
+                if (TokenIsNumber(token))
                 {
-                    double number;
-                    Double.TryParse(token, out number);
-                    numberStack.Push(new BigInteger(number.ToString()));
+                    numberStack.Push(new BigInteger(token));
                     continue;
                 }
 
@@ -149,12 +147,6 @@ namespace PNCalculator
 
                         numberStack.Push(operand2 * operand1);
                         break;
-                    /*case "/":
-                        operand1 = new BigInteger(numberStack.Pop().ToString());
-                        operand2 = new BigInteger(numberStack.Pop().ToString());
-
-                        numberStack.Push(operand2 / operand1);
-                        break;*/
                     case "div":
                         operand1 = numberStack.Pop();
                         operand2 = numberStack.Pop();
@@ -167,12 +159,6 @@ namespace PNCalculator
 
                         numberStack.Push(operand2 % operand1);
                         break;
-                    /*case "^":
-                        operand1 = numberStack.Pop();
-                        operand2 = numberStack.Pop();
-
-                        numberStack.Push(Math.Pow(operand2, operand1));
-                        break;*/
                     default:
                         Console.WriteLine("Unexpected token");
                         return null;
@@ -183,53 +169,40 @@ namespace PNCalculator
 
         public static List<string>? ParseExpression(string expression)
         {
-            expression = expression.Replace(" ", "") + 'e';
+            expression = expression.Replace(" ", "");
 
-            char[] numLetters = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',' };
-            List<string> resultExp = new List<string>();
+            char[] numLetters = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+            List<string> resultExpression = new List<string>();
 
-            for (int i = -1; i < expression.Length; )
-            {
-                i++;
-                double n;
-                try
+            for (int i = 0; i < expression.Length; i++)
+            { 
+                if (Double.TryParse(expression[i].ToString(), out double n))
                 {
+                    string number = "";
 
-                    if (Double.TryParse(expression[i].ToString(), out n))
+                    for (var j = i; j < expression.Length && numLetters.Contains(expression[j]); j++)
                     {
-                        string number = "";
-
-                        var j = i;
-                        while (numLetters.Contains(expression[j]))
-                        {
-                            number += expression[j];
-                            j++;
-                        }
-                        resultExp.Add(number);
-                        i += number.Length - 1;
-
-                        continue;
+                        number += expression[j];
                     }
+                    resultExpression.Add(number);
+                    i += number.Length - 1;
+
+                    continue;
                 }
-                catch 
-                {
-                    return resultExp;
-                }
+
                 switch (expression[i])
                 {
                     case '+':
                     case '-':
                     case '*':
-                    case '/':
-                    case '^':
                     case '(':
                     case ')':
-                        resultExp.Add(expression[i].ToString());
+                        resultExpression.Add(expression[i].ToString());
                         break;
                     case 'd':
                         if (expression[i + 1] == 'i' && expression[i + 2] == 'v')
                         {
-                            resultExp.Add("div");
+                            resultExpression.Add("div");
                             i += 2; 
                         }
                         else
@@ -241,7 +214,7 @@ namespace PNCalculator
                     case 'm':
                         if (expression[i + 1] == 'o' && expression[i + 2] == 'd')
                         {
-                            resultExp.Add("mod");
+                            resultExpression.Add("mod");
                             i += 2;
                         }
                         else
@@ -250,15 +223,12 @@ namespace PNCalculator
                             return null;
                         }
                         break;
-                    case 'e':
-                        break;
                     default:
                         Console.WriteLine("Unexpected token");
                         return null;
                 }
             }
-
-            return resultExp;
+            return resultExpression;
         }
 
         public static bool IsNumber(string token)
@@ -271,6 +241,18 @@ namespace PNCalculator
         private static void ToSameFormat(string number1, string number2)
         {
             
+        }
+
+        private static bool TokenIsNumber(string token)
+        {
+            string numberAppropriatedChars = "0123456789";
+
+            foreach (var tokenPart in token) 
+            {
+                if (!numberAppropriatedChars.Contains(tokenPart))
+                    return false;
+            }
+            return true;
         }
     }
 }

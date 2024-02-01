@@ -19,7 +19,6 @@ namespace PNCalculator
         public BigInteger(string number)
         {
             digits = new List<int>();
-
             for (int i = number.Length - 1; i >= 0; i--)
             {
                 if (number[i] == '-')
@@ -163,7 +162,6 @@ namespace PNCalculator
                     result.digits.RemoveAt(result.digits.Count - 1);
                 }
 
-                //result.digits.Reverse();
                 return result;
             }
             else
@@ -208,6 +206,9 @@ namespace PNCalculator
 
         public static BigInteger operator *(BigInteger num1, BigInteger num2)
         {
+            if ((num1.digits.Count == 1 && num1.digits[0] == 0) || (num2.digits.Count == 1 && num2.digits[0] == 0))
+                return new BigInteger("0");
+
             BigInteger result = new BigInteger();
 
             for (int i = 0; i < num1.digits.Count; i++)
@@ -234,7 +235,6 @@ namespace PNCalculator
 
                 result += tmpResult;
             }
-            result.digits.Reverse();
 
             return result;
         }
@@ -269,7 +269,7 @@ namespace PNCalculator
                 {
                     remainder.digits.Insert(0, divisible.digits[divisible.digits.Count - 1 - i]);
 
-                    if (remainder.digits.Count == divisor.digits.Count && divisor.IsMoreThan(remainder))
+                    if (quotient.digits.Count > 0 && divisor.IsMoreThan(remainder))
                     {
                         quotient.digits.Add(0);
                     }
@@ -293,7 +293,6 @@ namespace PNCalculator
                     tmpQuotient++;
                 }
                 quotient.digits.Add(tmpQuotient);
-                // Console.WriteLine(quotient);
                 tmpQuotient = 0;
 
                 if (remainder.digits[remainder.digits.Count - 1] == 0)

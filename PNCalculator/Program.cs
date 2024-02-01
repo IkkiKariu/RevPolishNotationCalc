@@ -21,29 +21,29 @@ namespace PNCalculator
 
             while (true)
             {
-                Console.Write("Введите выражение: ");
+                Console.WriteLine("Введите выражение: ");
                 string userInput = Console.ReadLine();
 
                 List<string> parsedExp = Calculator.ParseExpression(userInput);
 
-                foreach (var token in parsedExp)
+               /* foreach (var token in parsedExp)
                 {
                     Console.Write(token);
-                }
+                }*/
 
-                Console.Write("\nВыражение в обратной польской нотаци: ");
+                Console.Write("\nВыражение в обратной польской нотаци:\n");
 
                 
                 foreach (var token in Calculator.ConvertToRevNotation(parsedExp))
                 {
-                    Console.Write(token);
+                    Console.Write(token + " ");
                 }
 
-                Console.WriteLine();
+                Console.WriteLine("\n");
 
                 BigInteger resultt = Calculator.Calculate(Calculator.ConvertToRevNotation(parsedExp));
 
-                Console.Write("Результат: ");
+                Console.WriteLine("Результат: ");
 
                 if (resultt.isNegative)
                     Console.Write('-');
@@ -53,7 +53,7 @@ namespace PNCalculator
                     Console.Write(resultt.digits[i]);
                 }
                 Console.WriteLine();
-                Console.WriteLine("---");
+                Console.WriteLine("---\n");
             }
         }
     }
